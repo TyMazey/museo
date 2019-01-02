@@ -50,10 +50,10 @@ class CuratorTest < Minitest::Test
   def test_it_can_create_photos
     curator = Curator.new
 
-    curator.add_photographs(@photo_1)
-    curator.add_photographs(@photo_2)
+    curator.add_photograph(@photo_1)
+    curator.add_photograph(@photo_2)
 
-    assert_equal [Photograph, Photograph], curator.photographs
+    assert_instance_of Photograph, curator.photographs.first
   end
 
   def test_it_can_create_artist
@@ -62,7 +62,7 @@ class CuratorTest < Minitest::Test
     curator.add_artist(@artist_1)
     curator.add_artist(@artist_2)
 
-    assert_equal [Artist, Artist], curator.artists
+    assert_instance_of Artist, curator.artists.first
   end
 
 
