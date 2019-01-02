@@ -70,8 +70,14 @@ class CuratorTest < Minitest::Test
     curator.add_artist(@artist_1)
     curator.add_artist(@artist_2)
 
-    assert_equal curator.artist.first, curator.find_artist_by_id("1")
+    assert_equal curator.artists.first, curator.find_artist_by_id("1")
   end
 
+  def test_it_can_find_photo_by_id
+    curator = Curator.new
+    curator.add_photograph(@photo_1)
+    curator.add_photograph(@photo_2)
 
+    assert_equal curator.photographs.last, curator.find_photograph_by_id("2")
+  end
 end
